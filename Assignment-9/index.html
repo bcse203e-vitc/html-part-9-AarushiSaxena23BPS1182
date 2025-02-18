@@ -1,1 +1,72 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppointmentBooking</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to appointment booking system</h1>
+        <h2>Our services are </h2>
+        <div class="services">
+            <div class="service">
+                <h3>Doctor Consultation</h3>
+                <button onclick="openForm('Doctor Colsultation')">Book Appointment</button>
+            </div>
+            <div class="service">
+                <h3>Car Service</h3>
+                <button onclick="openForm('Car Service')">Book Appointment</button>
+            </div>
+            <div class="service">
+                <h3>Salon Booking</h3>
+                <button onclick="openForm('Salon Booking')">Book Appointment</button>
+            </div>
+        </div>
+    </div>
+    <div class="form-popup" id="appointmentForm" style="display:none;">
+        <form id="bookingForm" onSubmit="validateForm(event)">
+            <h2>Book an appointment</h2>
+            <label for="name">Full Name : </label>
+            <input type="text" id="name" required>
+            <span id="nameError" class="error"></span>
+            <br><br>
+            <label for="email">Email : </label>
+            <input type="text" id="email" required>
+            <span id="emailError" class="error"></span>
+            <br><br>
+            <label for="phone">Phone : </label>
+            <input type="text" id="phone" required>
+            <span id="phoneError" class="error"></span>
+            <br><br>
+            <label for="service">Service : </label>
+            <select id="service">
+                <option value="Doctor">Doctor Consultation</option>
+                <option value="Salon">Salon Booking</option>
+                <option value="Car Serive">Car Service</option>
+            </select>
+            <br><br>
+            <label for="datetime">Date and Time : </label>
+            <input type="text" id="datetime" required>
+            <span id="dateError" class="error"></span>
+            <br><br>
+            <label for="requests">Special Requests : </label>
+            <textarea id="requests"></textarea>
+            <br><br>
+            <label>
+                <input type="checkbox" id="terms" required> Agree to Terms
+            </label>
+            <span id="termsError" class="error"></span>
+            <br><br>
+            <button type="submit">Submit</button>
+            <button type="button" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+    <div class="appointments" id="appointmentsList">
+        <h2>Booked Appointments</h2>
+        <ul id="appointmentEntries"></ul>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
